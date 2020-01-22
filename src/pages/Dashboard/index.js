@@ -66,8 +66,6 @@ export default function Dashboard() {
     setDate(addDays(date, 1));
   }
 
-  console.tron.log(schedule);
-
   return (
     <Container>
       <header>
