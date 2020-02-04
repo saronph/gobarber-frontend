@@ -31,8 +31,8 @@ export default function Dashboard() {
   useEffect(() => {
     async function loadSchedule() {
       const response = await api.get('schedule', {
-        params: { date },
-      });
+        // eslint-disable-next-line
+        params: { date }});
 
       const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
 
@@ -46,9 +46,9 @@ export default function Dashboard() {
         return {
           time: `${hour}:00h`,
           past: isBefore(compareDate, new Date()),
-          appointment: response.data.find(a =>
-            isEqual(parseISO(a.date), compareDate)
-          ),
+          appointment: response.data.find(a => {
+            return isEqual(parseISO(a.date), compareDate);
+          }),
         };
       });
 
